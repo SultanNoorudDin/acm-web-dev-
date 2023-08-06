@@ -79,6 +79,25 @@ function showQuote() {
 function showRiddle() {
   // Value should be in format: { question: '', answer: '' }
   const randomRiddle = getRandomData('riddles');
+  const question = randomRiddle.question;
+  const answer = randomRiddle.answer;
+
+  const questElement = document.createElement('p');
+  questElement.textContent = question;
+
+  const answerElement = document.createElement('p');
+  answerElement.textContent ='Answe = ' + answer;
+
+  const container = document.querySelector('.riddle-content');
+
+
+  answerElement.setAttribute('id', 'riddle-answer');
+
+
+  answerElement.hidden = true;
+  clearAll();
+  container.appendChild(questElement);
+  container.appendChild(answerElement);
 }
 
 /**
@@ -89,7 +108,19 @@ function showRiddle() {
 * - If there is a riddle shown but no answer, unhide the answer!
 */
 function revealAnswers() {
+  const riddleCon = document.querySelector('.riddle-content');
+  const riddle = riddleCon.querySelector('p');
+  const answer = document.querySelector('#riddle-answer');
 
+  if (riddle && answer) {
+    answer.hidden = false;
+  }
+  else if(riddle){
+    alert('answer is already revealed');
+  }
+  else{
+    alert('no riddle to reveal answer');
+  } 
 }
 
 /**

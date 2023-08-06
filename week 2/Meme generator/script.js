@@ -116,7 +116,8 @@ function revealAnswers() {
     answer.hidden = false;
   }
   else if(riddle){
-    alert('answer is already revealed');
+    // alert('answer is already revealed');
+    
   }
   else{
     alert('no riddle to reveal answer');
